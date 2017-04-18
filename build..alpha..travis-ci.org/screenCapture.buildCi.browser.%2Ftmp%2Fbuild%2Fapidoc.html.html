@@ -1,0 +1,2312 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/medikoo/deferred#readme">deferred (v0.7.6)</a>
+</h1>
+<h4>Modular and fast Promises implementation</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.deferred">module deferred</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred">
+            function <span class="apidocSignatureSpan"></span>deferred
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.Deferred">
+            function <span class="apidocSignatureSpan">deferred.</span>Deferred
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.callAsync">
+            function <span class="apidocSignatureSpan">deferred.</span>callAsync
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.delay">
+            function <span class="apidocSignatureSpan">deferred.</span>delay
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.dynamicQueue">
+            function <span class="apidocSignatureSpan">deferred.</span>dynamicQueue
+            <span class="apidocSignatureSpan">(list)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.every">
+            function <span class="apidocSignatureSpan">deferred.</span>every
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.extend">
+            function <span class="apidocSignatureSpan">deferred.</span>extend
+            <span class="apidocSignatureSpan">(name, unres, onres, res)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.find">
+            function <span class="apidocSignatureSpan">deferred.</span>find
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.gate">
+            function <span class="apidocSignatureSpan">deferred.</span>gate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.invokeAsync">
+            function <span class="apidocSignatureSpan">deferred.</span>invokeAsync
+            <span class="apidocSignatureSpan">(obj, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.isPromise">
+            function <span class="apidocSignatureSpan">deferred.</span>isPromise
+            <span class="apidocSignatureSpan">(o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.map">
+            function <span class="apidocSignatureSpan">deferred.</span>map
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.monitor">
+            function <span class="apidocSignatureSpan">deferred.</span>monitor
+            <span class="apidocSignatureSpan">(timeout, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.profile">
+            function <span class="apidocSignatureSpan">deferred.</span>profile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.profileEnd">
+            function <span class="apidocSignatureSpan">deferred.</span>profileEnd
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.promisify">
+            function <span class="apidocSignatureSpan">deferred.</span>promisify
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.promisifySync">
+            function <span class="apidocSignatureSpan">deferred.</span>promisifySync
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.reduce">
+            function <span class="apidocSignatureSpan">deferred.</span>reduce
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.reject">
+            function <span class="apidocSignatureSpan">deferred.</span>reject
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.resolve">
+            function <span class="apidocSignatureSpan">deferred.</span>resolve
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.some">
+            function <span class="apidocSignatureSpan">deferred.</span>some
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.toString">
+            function <span class="apidocSignatureSpan">deferred.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.validPromise">
+            function <span class="apidocSignatureSpan">deferred.</span>validPromise
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">deferred.</span>Deferred.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">deferred.</span>dynamicQueue.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">deferred.</span>profiler</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.deferred.Deferred">module deferred.Deferred</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.Deferred.Deferred">
+            function <span class="apidocSignatureSpan">deferred.</span>Deferred
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.deferred.Deferred.prototype">module deferred.Deferred.prototype</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">deferred.Deferred.prototype.</span>resolved</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.Deferred.prototype._settle">
+            function <span class="apidocSignatureSpan">deferred.Deferred.prototype.</span>_settle
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.Deferred.prototype.reject">
+            function <span class="apidocSignatureSpan">deferred.Deferred.prototype.</span>reject
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.Deferred.prototype.resolve">
+            function <span class="apidocSignatureSpan">deferred.Deferred.prototype.</span>resolve
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.deferred.deferred">module deferred.deferred</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.deferred">
+            function <span class="apidocSignatureSpan">deferred.</span>deferred
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.Deferred">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>Deferred
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.callAsync">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>callAsync
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.delay">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>delay
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.dynamicQueue">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>dynamicQueue
+            <span class="apidocSignatureSpan">(list)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.every">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>every
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.extend">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>extend
+            <span class="apidocSignatureSpan">(name, unres, onres, res)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.find">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>find
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.gate">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>gate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.invokeAsync">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>invokeAsync
+            <span class="apidocSignatureSpan">(obj, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.isPromise">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>isPromise
+            <span class="apidocSignatureSpan">(o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.map">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>map
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.monitor">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>monitor
+            <span class="apidocSignatureSpan">(timeout, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.profile">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>profile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.profileEnd">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>profileEnd
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.promisify">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>promisify
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.promisifySync">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>promisifySync
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.reduce">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>reduce
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.reject">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>reject
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.resolve">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>resolve
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.some">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>some
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.deferred.validPromise">
+            function <span class="apidocSignatureSpan">deferred.deferred.</span>validPromise
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.deferred.dynamicQueue">module deferred.dynamicQueue</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.dynamicQueue.dynamicQueue">
+            function <span class="apidocSignatureSpan">deferred.</span>dynamicQueue
+            <span class="apidocSignatureSpan">(list)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.deferred.dynamicQueue.prototype">module deferred.dynamicQueue.prototype</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">deferred.dynamicQueue.prototype.</span>initialized</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.dynamicQueue.prototype._processValue">
+            function <span class="apidocSignatureSpan">deferred.dynamicQueue.prototype.</span>_processValue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.dynamicQueue.prototype.add">
+            function <span class="apidocSignatureSpan">deferred.dynamicQueue.prototype.</span>add
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">deferred.dynamicQueue.prototype.</span>waiting</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.deferred.profiler">module deferred.profiler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.profiler.profile">
+            function <span class="apidocSignatureSpan">deferred.profiler.</span>profile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.deferred.profiler.profileEnd">
+            function <span class="apidocSignatureSpan">deferred.profiler.</span>profileEnd
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.deferred" id="apidoc.module.deferred">module deferred</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred" id="apidoc.element.deferred.deferred">
+        function <span class="apidocSignatureSpan"></span>deferred
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deferred = function (value) {
+	var l = arguments.length, d, waiting, initialized, result;
+	if (!l) return new Deferred();
+	if (l &gt; 1) {
+		d = new Deferred();
+		waiting = 0;
+		result = new Array(l);
+		every.call(arguments, function (value, index) {
+			value = assimilate(value);
+			if (!isPromise(value)) {
+				result[index] = value;
+				return true;
+			}
+			if (value.resolved) {
+				if (value.failed) {
+					d.reject(value.value);
+					return false;
+				}
+				result[index] = value.value;
+				return true;
+			}
+			++waiting;
+			value.done(function (value) {
+				result[index] = value;
+				if (!--waiting &amp;&amp; initialized) d.resolve(result);
+			}, d.reject);
+			return true;
+		});
+		initialized = true;
+		if (!waiting) d.resolve(result);
+		return d.promise;
+	}
+	value = assimilate(value);
+	if (isPromise(value)) return value;
+	return resolve(value, isError(value));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.Deferred" id="apidoc.element.deferred.Deferred">
+        function <span class="apidocSignatureSpan">deferred.</span>Deferred
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Deferred = function () {
+	var promise = function (win, fail) { return promise.then(win, fail); };
+	if (!count) timeout = setTimeout(noop, 1e9);
+	++count;
+	if (createDeferred._monitor) promise.monitor = createDeferred._monitor();
+	promise.__proto__ = ext._unresolved;
+	if (!protoSupported) extendShim(promise);
+	(createDeferred._profile &amp;&amp; createDeferred._profile());
+	this.promise = promise;
+	this.resolve = this.resolve.bind(this);
+	this.reject = this.reject.bind(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.callAsync" id="apidoc.element.deferred.callAsync">
+        function <span class="apidocSignatureSpan">deferred.</span>callAsync
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">callAsync = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.delay" id="apidoc.element.deferred.delay">
+        function <span class="apidocSignatureSpan">deferred.</span>delay
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delay = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.dynamicQueue" id="apidoc.element.deferred.dynamicQueue">
+        function <span class="apidocSignatureSpan">deferred.</span>dynamicQueue
+        <span class="apidocSignatureSpan">(list)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dynamicQueue = function (list) {
+	if (!(this instanceof DynamicQueue)) return new DynamicQueue(list);
+	list = aFrom(ensureIterable(list));
+
+	assign(this, deferred());
+	list.every(this.add, this);
+	if (!this.waiting) {
+		this.resolve();
+		return;
+	}
+	this.initialized = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.every" id="apidoc.element.deferred.every">
+        function <span class="apidocSignatureSpan">deferred.</span>every
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">every = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.extend" id="apidoc.element.deferred.extend">
+        function <span class="apidocSignatureSpan">deferred.</span>extend
+        <span class="apidocSignatureSpan">(name, unres, onres, res)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (name, unres, onres, res) {
+	name = String(name);
+	(callable(res) &amp;&amp; ((onres == null) || callable(onres)) &amp;&amp; callable(unres));
+	defineProperty(exports._unresolved, name, d(unres));
+	exports._onresolve[name] = onres;
+	defineProperty(exports._resolved, name, d(res));
+	exports._names.push(name);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.find" id="apidoc.element.deferred.find">
+        function <span class="apidocSignatureSpan">deferred.</span>find
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.gate" id="apidoc.element.deferred.gate">
+        function <span class="apidocSignatureSpan">deferred.</span>gate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gate = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Limiting concurrency
+
+There are cases when we don't want to run too many tasks simultaneously. Like common case in Node.js when we don't want
+ to open too many file descriptors.
+
+Handle that with `deferred.gate`, it wraps functions that return promises. It doesn't do anything to promise objects, it just
+ limits creation of them by blocking calls to function it wraps.
+
+```javascript
+var fn = deferred.<span class="apidocCodeKeywordSpan">gate</span>(function async() {
+  var def = deferred();
+  // ..
+  return def.promise;
+}, 10);
+```
+
+If there are already 10 concurrent tasks running `async` function invocation will be postponed into the queue and released when
+first of the running tasks will finish its job.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.invokeAsync" id="apidoc.element.deferred.invokeAsync">
+        function <span class="apidocSignatureSpan">deferred.</span>invokeAsync
+        <span class="apidocSignatureSpan">(obj, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">invokeAsync = function (obj, fn) {
+	value(obj);
+	if (!isCallable(fn)) fn = callable(obj[fn]);
+	return callAsync(fn, null, obj, slice.call(arguments, 2));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// For asynchronous functions use invokeAsync
+var promise = deferred({ foo: function (arg, callback) {
+  setTimeout(function () {
+    callback(null, arg*arg);
+  }, 100);
+} });
+
+promise.<span class="apidocCodeKeywordSpan">invokeAsync</span>('foo', 3)(function (result) {
+  console.log(result); // 9
+});
+```
+
+#### map
+
+See [promise aware version of Array's map](#map).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.isPromise" id="apidoc.element.deferred.isPromise">
+        function <span class="apidocSignatureSpan">deferred.</span>isPromise
+        <span class="apidocSignatureSpan">(o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPromise = function (o) {
+	return (typeof o === 'function') &amp;&amp; (typeof o.then === 'function') &amp;&amp; (o.end !== o.done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var delayedAdd = delay(function (a, b) {
+  return a + b;
+}, 100);
+
+var resultPromise = delayedAdd(2, 3);
+
+console.log(deferred.<span class="apidocCodeKeywordSpan">isPromise</span>(resultPromise)); // true
+
+resultPromise(function (value) {
+  // Invoked after 100 milliseconds
+  console.log(value); // 5
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.map" id="apidoc.element.deferred.map">
+        function <span class="apidocSignatureSpan">deferred.</span>map
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">map = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  // Filter *.js files and generated lib.js
+  .invoke('filter', function (file) {
+    return (file.slice(-3) === '.js') &amp;&amp; (file !== 'lib.js');
+  })
+
+  // Read content of all files
+  .<span class="apidocCodeKeywordSpan">map</span>(readFile)
+
+  // Concatenate files content into one string
+  .invoke('join', '\n')
+
+).done(); // If there was any error on the way throw it
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.monitor" id="apidoc.element.deferred.monitor">
+        function <span class="apidocSignatureSpan">deferred.</span>monitor
+        <span class="apidocSignatureSpan">(timeout, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">monitor = function (timeout, cb) {
+	if (timeout === false) {
+		// Cancel monitor
+		delete deferred._monitor;
+		delete exports.timeout;
+		delete exports.callback;
+		return;
+	}
+	exports.timeout = timeout = max(toPosInt(timeout) || 5000, 50);
+	if (cb == null) {
+		if ((typeof console !== 'undefined') &amp;&amp; console &amp;&amp;
+				isCallable(console.error)) {
+			cb = function (e) {
+				console.error(((e.stack &amp;&amp; e.stack.toString()) ||
+					"Unresolved promise: no stack available"));
+			};
+		}
+	} else {
+		callable(cb);
+	}
+	exports.callback = cb;
+
+	deferred._monitor = function () {
+		var e = new Error("Unresolved promise");
+		return setTimeout(function () {
+			if (cb) cb(e);
+		}, timeout);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### Monitoring unresolved promises
+
+In properly constructed flow, there should be no promises that are never resolved.
+If you want to be sure that it's not the case, or you suspect there are such issues, check whether deferred's monitor
+has something to say
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">monitor</span>();
+```
+
+By default monitor will log error for every promise that was not resolved in 5 seconds.
+You can customize that timeout, and handle errors with your own listener:
+
+```javascript
+deferred.monitor(10000, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.profile" id="apidoc.element.deferred.profile">
+        function <span class="apidocSignatureSpan">deferred.</span>profile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">profile = function () {
+	resolved = 0;
+	rStats = {};
+	unresolved = 0;
+	uStats = {};
+	deferred._profile = profile;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+This extension affects performance and it's best not to use it in production environment
+
+#### Usage statistics
+
+Being able to see how many promises were initialized (and where) in our flow can be helpful to track application issues, it'
+;s also good way to confirm that constructed flow works as intended.
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">profile</span>(); // Start collecting statistics
+
+//...
+
+var stats = deferred.profileEnd(); // End profiling
+console.log(stats.log); // See readable output
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.profileEnd" id="apidoc.element.deferred.profileEnd">
+        function <span class="apidocSignatureSpan">deferred.</span>profileEnd
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">profileEnd = function () {
+	var total, lpad, log = '';
+
+	if (!deferred._profile) {
+		throw new Error("Deferred profiler was not initialized");
+	}
+	delete deferred._profile;
+
+	log += "------------------------------------------------------------\n";
+	log += "Deferred usage statistics:\n\n";
+
+	total = String(resolved + unresolved);
+	lpad = partial.call(pad, " ", total.length);
+	log += total + " Total promises initialized\n";
+	log += lpad.call(unresolved) + " Initialized as Unresolved\n";
+	log += lpad.call(resolved) + " Initialized as Resolved\n";
+
+	if (unresolved) {
+		log += "\nUnresolved promises were initialized at:\n";
+		forEach(uStats, function (data, name) {
+			log += lpad.call(data.count) + " " + name + "\n";
+		}, null, function (a, b) {
+			return this[b].count - this[a].count;
+		});
+	}
+
+	if (resolved) {
+		log += "\nResolved promises were initialized at:\n";
+		forEach(rStats, function (data, name) {
+			log += lpad.call(data.count) + " " + name + "\n";
+		}, null, function (a, b) {
+			return this[b].count - this[a].count;
+		});
+	}
+	log += "------------------------------------------------------------\n";
+
+	return {
+		log: log,
+		resolved: { count: resolved, stats: rStats },
+		unresolved: { count: unresolved, stats: uStats }
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Being able to see how many promises were initialized (and where) in our flow can be helpful to track application issues, it'
+;s also good way to confirm that constructed flow works as intended.
+
+```javascript
+deferred.profile(); // Start collecting statistics
+
+//...
+
+var stats = deferred.<span class="apidocCodeKeywordSpan">profileEnd</span>(); // End profiling
+console.log(stats.log); // See readable output
+```
+
+Example log output:
+
+```
+------------------------------------------------------------
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.promisify" id="apidoc.element.deferred.promisify">
+        function <span class="apidocSignatureSpan">deferred.</span>promisify
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">promisify = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+It's not convenient to work with both promises and callback style functions. When you decide to build your flow with promises
+ __don't mix both concepts, just `promisify` asynchronous functions so they return promises instead__.
+
+```javascript
+var deferred = require('deferred')
+  , fs = require('fs')
+
+  , readFile = deferred.<span class="apidocCodeKeywordSpan">promisify</span>(fs.readFile);
+
+readFile(__filename, 'utf-8')(function (content) {
+  // process content
+}, function (err) {
+  // handle error
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.promisifySync" id="apidoc.element.deferred.promisifySync">
+        function <span class="apidocSignatureSpan">deferred.</span>promisifySync
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">promisifySync = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.reduce" id="apidoc.element.deferred.reduce">
+        function <span class="apidocSignatureSpan">deferred.</span>reduce
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reduce = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+__See [limiting concurrency](#limiting-concurrency) section for info on how to limit maximum number of concurrent calls in `map`
+__
+
+#### Reduce
+
+It's same as Array's reduce with that difference that it calls callback only after previous accumulated value is resolved
+, this way we may accumulate results of collection of promises or invoke some asynchronous tasks one after another.
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">reduce</span>([delayedAdd(2, 3), delayedAdd(3, 5), delayedAdd(1, 7)], function (a,
+b) {
+  return delayedAdd(a, b);
+})
+(function (result) {
+  console.log(result); // 21
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.reject" id="apidoc.element.deferred.reject">
+        function <span class="apidocSignatureSpan">deferred.</span>reject
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reject = function (value) { return resolve(value, true); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var def = deferred(), self = this, args = arguments;
+
+  setTimeout(function () {
+    var value;
+    try {
+      value = fn.apply(self, args));
+    } catch (e) {
+      def.<span class="apidocCodeKeywordSpan">reject</span>(e);
+      return;
+    }
+    def.resolve(value);
+  }, timeout);
+
+  return def.promise;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.resolve" id="apidoc.element.deferred.resolve">
+        function <span class="apidocSignatureSpan">deferred.</span>resolve
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (value) {
+	value = assimilate(value);
+	if (isPromise(value)) return value;
+	return resolve(value, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      var value;
+      try {
+        value = fn.apply(self, args));
+      } catch (e) {
+        def.reject(e);
+        return;
+      }
+      def.<span class="apidocCodeKeywordSpan">resolve</span>(value);
+    }, timeout);
+
+    return def.promise;
+  };
+};
+
+var delayedAdd = delay(function (a, b) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.some" id="apidoc.element.deferred.some">
+        function <span class="apidocSignatureSpan">deferred.</span>some
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">some = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+This function is available also as an extension on promise object.
+
+#### Some
+
+Promise aware Array's some. Process collection one after another and stop when first item matches your criteria
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">some</span>([filename1, filename2, filename3], function (filename) {
+  return readFile(filename, 'utf8', function (data) {
+    if (data.indexOf('needle')) {
+      // Got it! Stop further processing
+      return true;
+    }
+  });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.toString" id="apidoc.element.deferred.toString">
+        function <span class="apidocSignatureSpan">deferred.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		return;
+	}
+	exports.timeout = timeout = max(toPosInt(timeout) || 5000, 50);
+	if (cb == null) {
+		if ((typeof console !== 'undefined') &amp;&amp; console &amp;&amp;
+				isCallable(console.error)) {
+			cb = function (e) {
+				console.error(((e.stack &amp;&amp; e.stack.<span class="apidocCodeKeywordSpan">toString</span>()) ||
+					"Unresolved promise: no stack available"));
+			};
+		}
+	} else {
+		callable(cb);
+	}
+	exports.callback = cb;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.validPromise" id="apidoc.element.deferred.validPromise">
+        function <span class="apidocSignatureSpan">deferred.</span>validPromise
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validPromise = function (x) {
+	if (!isPromise(x)) {
+		throw new TypeError(x + " is not a promise object");
+	}
+	return x;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.deferred.Deferred" id="apidoc.module.deferred.Deferred">module deferred.Deferred</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.Deferred.Deferred" id="apidoc.element.deferred.Deferred.Deferred">
+        function <span class="apidocSignatureSpan">deferred.</span>Deferred
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Deferred = function () {
+	var promise = function (win, fail) { return promise.then(win, fail); };
+	if (!count) timeout = setTimeout(noop, 1e9);
+	++count;
+	if (createDeferred._monitor) promise.monitor = createDeferred._monitor();
+	promise.__proto__ = ext._unresolved;
+	if (!protoSupported) extendShim(promise);
+	(createDeferred._profile &amp;&amp; createDeferred._profile());
+	this.promise = promise;
+	this.resolve = this.resolve.bind(this);
+	this.reject = this.reject.bind(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.deferred.Deferred.prototype" id="apidoc.module.deferred.Deferred.prototype">module deferred.Deferred.prototype</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.Deferred.prototype._settle" id="apidoc.element.deferred.Deferred.prototype._settle">
+        function <span class="apidocSignatureSpan">deferred.Deferred.prototype.</span>_settle
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_settle = function (value) {
+		var i, name, data, deps, dPromise, nuDeps;
+		this.promise.value = value;
+		this.promise.__proto__ = ext._resolved;
+		if (!protoSupported) this.promise.resolved = true;
+		deps = this.promise.dependencies;
+		delete this.promise.dependencies;
+		while (deps) {
+			for (i = 0; (dPromise = deps[i]); ++i) {
+				dPromise.value = value;
+				dPromise.failed = this.failed;
+				dPromise.__proto__ = ext._resolved;
+				if (!protoSupported) dPromise.resolved = true;
+				delete dPromise.pending;
+				if (dPromise.dependencies) {
+					if (!nuDeps) nuDeps = dPromise.dependencies;
+					else push.apply(nuDeps, dPromise.dependencies);
+					delete dPromise.dependencies;
+				}
+			}
+			deps = nuDeps;
+			nuDeps = null;
+		}
+		if ((data = this.promise.pending)) {
+			for (i = 0; (name = data[i]); ++i) {
+				ext._onresolve[name].apply(this.promise, data[++i]);
+			}
+			delete this.promise.pending;
+		}
+		return this.promise;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.Deferred.prototype.reject" id="apidoc.element.deferred.Deferred.prototype.reject">
+        function <span class="apidocSignatureSpan">deferred.Deferred.prototype.</span>reject
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reject = function (error) {
+		if (this.resolved) return this.promise;
+		this.resolved = true;
+		if (!--count) clearTimeout(timeout);
+		if (this.promise.monitor) clearTimeout(this.promise.monitor);
+		this.promise.failed = true;
+		return this._settle(error);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var def = deferred(), self = this, args = arguments;
+
+  setTimeout(function () {
+    var value;
+    try {
+      value = fn.apply(self, args));
+    } catch (e) {
+      def.<span class="apidocCodeKeywordSpan">reject</span>(e);
+      return;
+    }
+    def.resolve(value);
+  }, timeout);
+
+  return def.promise;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.Deferred.prototype.resolve" id="apidoc.element.deferred.Deferred.prototype.resolve">
+        function <span class="apidocSignatureSpan">deferred.Deferred.prototype.</span>resolve
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (value) {
+		if (this.resolved) return this.promise;
+		this.resolved = true;
+		if (!--count) clearTimeout(timeout);
+		if (this.promise.monitor) clearTimeout(this.promise.monitor);
+		value = assimilate(value);
+		if (isPromise(value)) {
+			if (!value.resolved) {
+				if (!value.dependencies) {
+					value.dependencies = [];
+				}
+				value.dependencies.push(this.promise);
+				if (this.promise.pending) {
+					if (value.pending) {
+						this.promise.pending.forEach(function (promise) { value.pending.push(promise); });
+						this.promise.pending = value.pending;
+						if (this.promise.dependencies) {
+							this.promise.dependencies.forEach(function self(dPromise) {
+								dPromise.pending = value.pending;
+								if (dPromise.dependencies) {
+									dPromise.dependencies.forEach(self);
+								}
+							});
+						}
+					} else {
+						value.pending = this.promise.pending;
+					}
+				} else if (value.pending) {
+					this.promise.pending = value.pending;
+				} else {
+					this.promise.pending = value.pending = [];
+				}
+				return this.promise;
+			}
+			this.promise.failed = value.failed;
+			value = value.value;
+		}
+		return this._settle(value);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      var value;
+      try {
+        value = fn.apply(self, args));
+      } catch (e) {
+        def.reject(e);
+        return;
+      }
+      def.<span class="apidocCodeKeywordSpan">resolve</span>(value);
+    }, timeout);
+
+    return def.promise;
+  };
+};
+
+var delayedAdd = delay(function (a, b) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.deferred.deferred" id="apidoc.module.deferred.deferred">module deferred.deferred</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.deferred" id="apidoc.element.deferred.deferred.deferred">
+        function <span class="apidocSignatureSpan">deferred.</span>deferred
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deferred = function (value) {
+	var l = arguments.length, d, waiting, initialized, result;
+	if (!l) return new Deferred();
+	if (l &gt; 1) {
+		d = new Deferred();
+		waiting = 0;
+		result = new Array(l);
+		every.call(arguments, function (value, index) {
+			value = assimilate(value);
+			if (!isPromise(value)) {
+				result[index] = value;
+				return true;
+			}
+			if (value.resolved) {
+				if (value.failed) {
+					d.reject(value.value);
+					return false;
+				}
+				result[index] = value.value;
+				return true;
+			}
+			++waiting;
+			value.done(function (value) {
+				result[index] = value;
+				if (!--waiting &amp;&amp; initialized) d.resolve(result);
+			}, d.reject);
+			return true;
+		});
+		initialized = true;
+		if (!waiting) d.resolve(result);
+		return d.promise;
+	}
+	value = assimilate(value);
+	if (isPromise(value)) return value;
+	return resolve(value, isError(value));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.Deferred" id="apidoc.element.deferred.deferred.Deferred">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>Deferred
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Deferred = function () {
+	var promise = function (win, fail) { return promise.then(win, fail); };
+	if (!count) timeout = setTimeout(noop, 1e9);
+	++count;
+	if (createDeferred._monitor) promise.monitor = createDeferred._monitor();
+	promise.__proto__ = ext._unresolved;
+	if (!protoSupported) extendShim(promise);
+	(createDeferred._profile &amp;&amp; createDeferred._profile());
+	this.promise = promise;
+	this.resolve = this.resolve.bind(this);
+	this.reject = this.reject.bind(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.callAsync" id="apidoc.element.deferred.deferred.callAsync">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>callAsync
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">callAsync = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.delay" id="apidoc.element.deferred.deferred.delay">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>delay
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delay = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.dynamicQueue" id="apidoc.element.deferred.deferred.dynamicQueue">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>dynamicQueue
+        <span class="apidocSignatureSpan">(list)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dynamicQueue = function (list) {
+	if (!(this instanceof DynamicQueue)) return new DynamicQueue(list);
+	list = aFrom(ensureIterable(list));
+
+	assign(this, deferred());
+	list.every(this.add, this);
+	if (!this.waiting) {
+		this.resolve();
+		return;
+	}
+	this.initialized = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.every" id="apidoc.element.deferred.deferred.every">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>every
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">every = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.extend" id="apidoc.element.deferred.deferred.extend">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>extend
+        <span class="apidocSignatureSpan">(name, unres, onres, res)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (name, unres, onres, res) {
+	name = String(name);
+	(callable(res) &amp;&amp; ((onres == null) || callable(onres)) &amp;&amp; callable(unres));
+	defineProperty(exports._unresolved, name, d(unres));
+	exports._onresolve[name] = onres;
+	defineProperty(exports._resolved, name, d(res));
+	exports._names.push(name);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.find" id="apidoc.element.deferred.deferred.find">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>find
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.gate" id="apidoc.element.deferred.deferred.gate">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>gate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gate = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Limiting concurrency
+
+There are cases when we don't want to run too many tasks simultaneously. Like common case in Node.js when we don't want
+ to open too many file descriptors.
+
+Handle that with `deferred.gate`, it wraps functions that return promises. It doesn't do anything to promise objects, it just
+ limits creation of them by blocking calls to function it wraps.
+
+```javascript
+var fn = deferred.<span class="apidocCodeKeywordSpan">gate</span>(function async() {
+  var def = deferred();
+  // ..
+  return def.promise;
+}, 10);
+```
+
+If there are already 10 concurrent tasks running `async` function invocation will be postponed into the queue and released when
+first of the running tasks will finish its job.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.invokeAsync" id="apidoc.element.deferred.deferred.invokeAsync">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>invokeAsync
+        <span class="apidocSignatureSpan">(obj, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">invokeAsync = function (obj, fn) {
+	value(obj);
+	if (!isCallable(fn)) fn = callable(obj[fn]);
+	return callAsync(fn, null, obj, slice.call(arguments, 2));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// For asynchronous functions use invokeAsync
+var promise = deferred({ foo: function (arg, callback) {
+  setTimeout(function () {
+    callback(null, arg*arg);
+  }, 100);
+} });
+
+promise.<span class="apidocCodeKeywordSpan">invokeAsync</span>('foo', 3)(function (result) {
+  console.log(result); // 9
+});
+```
+
+#### map
+
+See [promise aware version of Array's map](#map).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.isPromise" id="apidoc.element.deferred.deferred.isPromise">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>isPromise
+        <span class="apidocSignatureSpan">(o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPromise = function (o) {
+	return (typeof o === 'function') &amp;&amp; (typeof o.then === 'function') &amp;&amp; (o.end !== o.done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var delayedAdd = delay(function (a, b) {
+  return a + b;
+}, 100);
+
+var resultPromise = delayedAdd(2, 3);
+
+console.log(deferred.<span class="apidocCodeKeywordSpan">isPromise</span>(resultPromise)); // true
+
+resultPromise(function (value) {
+  // Invoked after 100 milliseconds
+  console.log(value); // 5
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.map" id="apidoc.element.deferred.deferred.map">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>map
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">map = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  // Filter *.js files and generated lib.js
+  .invoke('filter', function (file) {
+    return (file.slice(-3) === '.js') &amp;&amp; (file !== 'lib.js');
+  })
+
+  // Read content of all files
+  .<span class="apidocCodeKeywordSpan">map</span>(readFile)
+
+  // Concatenate files content into one string
+  .invoke('join', '\n')
+
+).done(); // If there was any error on the way throw it
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.monitor" id="apidoc.element.deferred.deferred.monitor">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>monitor
+        <span class="apidocSignatureSpan">(timeout, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">monitor = function (timeout, cb) {
+	if (timeout === false) {
+		// Cancel monitor
+		delete deferred._monitor;
+		delete exports.timeout;
+		delete exports.callback;
+		return;
+	}
+	exports.timeout = timeout = max(toPosInt(timeout) || 5000, 50);
+	if (cb == null) {
+		if ((typeof console !== 'undefined') &amp;&amp; console &amp;&amp;
+				isCallable(console.error)) {
+			cb = function (e) {
+				console.error(((e.stack &amp;&amp; e.stack.toString()) ||
+					"Unresolved promise: no stack available"));
+			};
+		}
+	} else {
+		callable(cb);
+	}
+	exports.callback = cb;
+
+	deferred._monitor = function () {
+		var e = new Error("Unresolved promise");
+		return setTimeout(function () {
+			if (cb) cb(e);
+		}, timeout);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### Monitoring unresolved promises
+
+In properly constructed flow, there should be no promises that are never resolved.
+If you want to be sure that it's not the case, or you suspect there are such issues, check whether deferred's monitor
+has something to say
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">monitor</span>();
+```
+
+By default monitor will log error for every promise that was not resolved in 5 seconds.
+You can customize that timeout, and handle errors with your own listener:
+
+```javascript
+deferred.monitor(10000, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.profile" id="apidoc.element.deferred.deferred.profile">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>profile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">profile = function () {
+	resolved = 0;
+	rStats = {};
+	unresolved = 0;
+	uStats = {};
+	deferred._profile = profile;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+This extension affects performance and it's best not to use it in production environment
+
+#### Usage statistics
+
+Being able to see how many promises were initialized (and where) in our flow can be helpful to track application issues, it'
+;s also good way to confirm that constructed flow works as intended.
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">profile</span>(); // Start collecting statistics
+
+//...
+
+var stats = deferred.profileEnd(); // End profiling
+console.log(stats.log); // See readable output
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.profileEnd" id="apidoc.element.deferred.deferred.profileEnd">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>profileEnd
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">profileEnd = function () {
+	var total, lpad, log = '';
+
+	if (!deferred._profile) {
+		throw new Error("Deferred profiler was not initialized");
+	}
+	delete deferred._profile;
+
+	log += "------------------------------------------------------------\n";
+	log += "Deferred usage statistics:\n\n";
+
+	total = String(resolved + unresolved);
+	lpad = partial.call(pad, " ", total.length);
+	log += total + " Total promises initialized\n";
+	log += lpad.call(unresolved) + " Initialized as Unresolved\n";
+	log += lpad.call(resolved) + " Initialized as Resolved\n";
+
+	if (unresolved) {
+		log += "\nUnresolved promises were initialized at:\n";
+		forEach(uStats, function (data, name) {
+			log += lpad.call(data.count) + " " + name + "\n";
+		}, null, function (a, b) {
+			return this[b].count - this[a].count;
+		});
+	}
+
+	if (resolved) {
+		log += "\nResolved promises were initialized at:\n";
+		forEach(rStats, function (data, name) {
+			log += lpad.call(data.count) + " " + name + "\n";
+		}, null, function (a, b) {
+			return this[b].count - this[a].count;
+		});
+	}
+	log += "------------------------------------------------------------\n";
+
+	return {
+		log: log,
+		resolved: { count: resolved, stats: rStats },
+		unresolved: { count: unresolved, stats: uStats }
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Being able to see how many promises were initialized (and where) in our flow can be helpful to track application issues, it'
+;s also good way to confirm that constructed flow works as intended.
+
+```javascript
+deferred.profile(); // Start collecting statistics
+
+//...
+
+var stats = deferred.<span class="apidocCodeKeywordSpan">profileEnd</span>(); // End profiling
+console.log(stats.log); // See readable output
+```
+
+Example log output:
+
+```
+------------------------------------------------------------
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.promisify" id="apidoc.element.deferred.deferred.promisify">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>promisify
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">promisify = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+It's not convenient to work with both promises and callback style functions. When you decide to build your flow with promises
+ __don't mix both concepts, just `promisify` asynchronous functions so they return promises instead__.
+
+```javascript
+var deferred = require('deferred')
+  , fs = require('fs')
+
+  , readFile = deferred.<span class="apidocCodeKeywordSpan">promisify</span>(fs.readFile);
+
+readFile(__filename, 'utf-8')(function (content) {
+  // process content
+}, function (err) {
+  // handle error
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.promisifySync" id="apidoc.element.deferred.deferred.promisifySync">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>promisifySync
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">promisifySync = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.reduce" id="apidoc.element.deferred.deferred.reduce">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>reduce
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reduce = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+__See [limiting concurrency](#limiting-concurrency) section for info on how to limit maximum number of concurrent calls in `map`
+__
+
+#### Reduce
+
+It's same as Array's reduce with that difference that it calls callback only after previous accumulated value is resolved
+, this way we may accumulate results of collection of promises or invoke some asynchronous tasks one after another.
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">reduce</span>([delayedAdd(2, 3), delayedAdd(3, 5), delayedAdd(1, 7)], function (a,
+b) {
+  return delayedAdd(a, b);
+})
+(function (result) {
+  console.log(result); // 21
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.reject" id="apidoc.element.deferred.deferred.reject">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>reject
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reject = function (value) { return resolve(value, true); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var def = deferred(), self = this, args = arguments;
+
+  setTimeout(function () {
+    var value;
+    try {
+      value = fn.apply(self, args));
+    } catch (e) {
+      def.<span class="apidocCodeKeywordSpan">reject</span>(e);
+      return;
+    }
+    def.resolve(value);
+  }, timeout);
+
+  return def.promise;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.resolve" id="apidoc.element.deferred.deferred.resolve">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>resolve
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (value) {
+	value = assimilate(value);
+	if (isPromise(value)) return value;
+	return resolve(value, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      var value;
+      try {
+        value = fn.apply(self, args));
+      } catch (e) {
+        def.reject(e);
+        return;
+      }
+      def.<span class="apidocCodeKeywordSpan">resolve</span>(value);
+    }, timeout);
+
+    return def.promise;
+  };
+};
+
+var delayedAdd = delay(function (a, b) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.some" id="apidoc.element.deferred.deferred.some">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>some
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">some = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+This function is available also as an extension on promise object.
+
+#### Some
+
+Promise aware Array's some. Process collection one after another and stop when first item matches your criteria
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">some</span>([filename1, filename2, filename3], function (filename) {
+  return readFile(filename, 'utf8', function (data) {
+    if (data.indexOf('needle')) {
+      // Got it! Stop further processing
+      return true;
+    }
+  });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.deferred.validPromise" id="apidoc.element.deferred.deferred.validPromise">
+        function <span class="apidocSignatureSpan">deferred.deferred.</span>validPromise
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validPromise = function (x) {
+	if (!isPromise(x)) {
+		throw new TypeError(x + " is not a promise object");
+	}
+	return x;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.deferred.dynamicQueue" id="apidoc.module.deferred.dynamicQueue">module deferred.dynamicQueue</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.dynamicQueue.dynamicQueue" id="apidoc.element.deferred.dynamicQueue.dynamicQueue">
+        function <span class="apidocSignatureSpan">deferred.</span>dynamicQueue
+        <span class="apidocSignatureSpan">(list)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dynamicQueue = function (list) {
+	if (!(this instanceof DynamicQueue)) return new DynamicQueue(list);
+	list = aFrom(ensureIterable(list));
+
+	assign(this, deferred());
+	list.every(this.add, this);
+	if (!this.waiting) {
+		this.resolve();
+		return;
+	}
+	this.initialized = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.deferred.dynamicQueue.prototype" id="apidoc.module.deferred.dynamicQueue.prototype">module deferred.dynamicQueue.prototype</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.dynamicQueue.prototype._processValue" id="apidoc.element.deferred.dynamicQueue.prototype._processValue">
+        function <span class="apidocSignatureSpan">deferred.dynamicQueue.prototype.</span>_processValue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_processValue = function () {
+		if (this.promise.resolved) return;
+		if (!--this.waiting &amp;&amp; this.initialized) this.resolve();
+		return true;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.dynamicQueue.prototype.add" id="apidoc.element.deferred.dynamicQueue.prototype.add">
+        function <span class="apidocSignatureSpan">deferred.dynamicQueue.prototype.</span>add
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (value) {
+		if (this.promise.resolved) throw new Error("Queue was already resolved");
+		++this.waiting;
+		value = assimilate(value);
+		if (isPromise(value)) {
+			if (!value.resolved) {
+				value.done(this._processValue.bind(this), this.reject);
+				return true;
+			}
+			if (value.failed) {
+				this.reject(value.value);
+				return false;
+			}
+		}
+		return this._processValue();
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.deferred.profiler" id="apidoc.module.deferred.profiler">module deferred.profiler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.profiler.profile" id="apidoc.element.deferred.profiler.profile">
+        function <span class="apidocSignatureSpan">deferred.profiler.</span>profile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">profile = function () {
+	resolved = 0;
+	rStats = {};
+	unresolved = 0;
+	uStats = {};
+	deferred._profile = profile;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+This extension affects performance and it's best not to use it in production environment
+
+#### Usage statistics
+
+Being able to see how many promises were initialized (and where) in our flow can be helpful to track application issues, it'
+;s also good way to confirm that constructed flow works as intended.
+
+```javascript
+deferred.<span class="apidocCodeKeywordSpan">profile</span>(); // Start collecting statistics
+
+//...
+
+var stats = deferred.profileEnd(); // End profiling
+console.log(stats.log); // See readable output
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.deferred.profiler.profileEnd" id="apidoc.element.deferred.profiler.profileEnd">
+        function <span class="apidocSignatureSpan">deferred.profiler.</span>profileEnd
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">profileEnd = function () {
+	var total, lpad, log = '';
+
+	if (!deferred._profile) {
+		throw new Error("Deferred profiler was not initialized");
+	}
+	delete deferred._profile;
+
+	log += "------------------------------------------------------------\n";
+	log += "Deferred usage statistics:\n\n";
+
+	total = String(resolved + unresolved);
+	lpad = partial.call(pad, " ", total.length);
+	log += total + " Total promises initialized\n";
+	log += lpad.call(unresolved) + " Initialized as Unresolved\n";
+	log += lpad.call(resolved) + " Initialized as Resolved\n";
+
+	if (unresolved) {
+		log += "\nUnresolved promises were initialized at:\n";
+		forEach(uStats, function (data, name) {
+			log += lpad.call(data.count) + " " + name + "\n";
+		}, null, function (a, b) {
+			return this[b].count - this[a].count;
+		});
+	}
+
+	if (resolved) {
+		log += "\nResolved promises were initialized at:\n";
+		forEach(rStats, function (data, name) {
+			log += lpad.call(data.count) + " " + name + "\n";
+		}, null, function (a, b) {
+			return this[b].count - this[a].count;
+		});
+	}
+	log += "------------------------------------------------------------\n";
+
+	return {
+		log: log,
+		resolved: { count: resolved, stats: rStats },
+		unresolved: { count: unresolved, stats: uStats }
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Being able to see how many promises were initialized (and where) in our flow can be helpful to track application issues, it'
+;s also good way to confirm that constructed flow works as intended.
+
+```javascript
+deferred.profile(); // Start collecting statistics
+
+//...
+
+var stats = deferred.<span class="apidocCodeKeywordSpan">profileEnd</span>(); // End profiling
+console.log(stats.log); // See readable output
+```
+
+Example log output:
+
+```
+------------------------------------------------------------
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
