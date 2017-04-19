@@ -252,15 +252,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.deferred.toString">
-            function <span class="apidocSignatureSpan">deferred.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.deferred.validPromise">
             function <span class="apidocSignatureSpan">deferred.</span>validPromise
             <span class="apidocSignatureSpan">(x)</span>
@@ -1230,37 +1221,6 @@ deferred.<span class="apidocCodeKeywordSpan">some</span>([filename1, filename2, 
     }
   });
 });
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.deferred.toString" id="apidoc.element.deferred.toString">
-        function <span class="apidocSignatureSpan">deferred.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-		return;
-	}
-	exports.timeout = timeout = max(toPosInt(timeout) || 5000, 50);
-	if (cb == null) {
-		if ((typeof console !== &#x27;undefined&#x27;) &#x26;&#x26; console &#x26;&#x26;
-				isCallable(console.error)) {
-			cb = function (e) {
-				console.error(((e.stack &#x26;&#x26; e.stack.<span class="apidocCodeKeywordSpan">toString</span>()) ||
-					&#x22;Unresolved promise: no stack available&#x22;));
-			};
-		}
-	} else {
-		callable(cb);
-	}
-	exports.callback = cb;
 ...</pre></li>
     </ul>
 
